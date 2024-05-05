@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1717876217, guid: f628f693b0002a943ab66b79a63e473d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1938530830, guid: f628f693b0002a943ab66b79a63e473d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1874643638, guid: f628f693b0002a943ab66b79a63e473d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 8340005013908088190}
   - component: {fileID: 7616958840007937435}
   - component: {fileID: 1011573738042856136}
+  - component: {fileID: 6340452705786174383}
   m_Layer: 0
   m_Name: Insect
   m_TagString: Untagged
@@ -280,9 +281,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4515075361192507926}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.464, y: 0.006, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.98480743, w: -0.17365001}
+  m_LocalPosition: {x: -2.52, y: -1.81, z: -0.03260707}
+  m_LocalScale: {x: 1.6914077, y: 1.6914077, z: 1.6914077}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4857684907897985961}
@@ -362,7 +363,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!95 &7616958840007937435
 Animator:
   serializedVersion: 5
@@ -396,6 +397,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4410f108815f7140bf72ea361bba761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  stains:
+  - {fileID: 659567878952640308, guid: d8544af9e8cae774db9b93e887287838, type: 3}
+  - {fileID: 3152876352503482149, guid: 0e5504ee5dcba294d8b3591d31c2197b, type: 3}
+  delay: 4
+--- !u!210 &6340452705786174383
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515075361192507926}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
 --- !u!1 &5755314056851818371
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +486,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 767553351, guid: f628f693b0002a943ab66b79a63e473d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
