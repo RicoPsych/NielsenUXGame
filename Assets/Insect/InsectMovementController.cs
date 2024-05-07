@@ -50,7 +50,9 @@ public class InsectMovementController : MonoBehaviour
     private void SpawnStain(){
 
         int randomNum = UnityEngine.Random.Range(0, stains.Length);
-        stains[randomNum].transform.position = transform.position;
+        var stainPosition = transform.position;
+        stainPosition.z = 0.25f;
+        stains[randomNum].transform.position = stainPosition;
         stains[randomNum].transform.Rotate(0,0, UnityEngine.Random.Range(0,360));
         Instantiate(stains[randomNum]);
 
@@ -124,8 +126,11 @@ public class InsectMovementController : MonoBehaviour
 
     void OnMouseDown(){
         //Debug.Log("Clicked");
-        SpawnStain();
-        Destroy(gameObject);
+        
+        if(GameObject.Find("Player").GetComponent<Player>().cursor == CursorType.Swatter){
+            SpawnStain();
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision){

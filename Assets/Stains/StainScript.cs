@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StainScript : MonoBehaviour
@@ -21,11 +22,22 @@ public class StainScript : MonoBehaviour
         }
     }
 
-    private void OnMouseDown(){
-        Debug.Log("Clicked Stain");
-        var newcolor = GetComponent<SpriteRenderer>().color;
-        newcolor.a -= 1f/max_hp;
-        GetComponent<SpriteRenderer>().color = newcolor;
-        hp -= 1;
+    // private void OnMouseDown(){
+    //     Debug.Log("Clicked Stain");
+    //     var newcolor = GetComponent<SpriteRenderer>().color;
+    //     newcolor.a -= 1f/max_hp;
+    //     GetComponent<SpriteRenderer>().color = newcolor;
+    //     hp -= 1;
+    // }
+
+    private void OnMouseExit(){
+
+        if(GameObject.Find("Player").GetComponent<Player>().cursor == CursorType.Cloth && Input.GetMouseButton(0)){
+            Debug.Log("Stain Swapped");
+            var newcolor = GetComponent<SpriteRenderer>().color;
+            newcolor.a -= 1f/max_hp;
+            GetComponent<SpriteRenderer>().color = newcolor;
+            hp -= 1;
+        }
     }
 }
