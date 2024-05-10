@@ -14,7 +14,7 @@ public class CursorChanger : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        browser = GameObject.Find("Browser (Mouse)");
+        browser = GameObject.Find("ScreenBrowser");
         //transform.GetChild(0).
         highlight = gameObject.transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
     }

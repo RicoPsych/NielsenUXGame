@@ -1856,6 +1856,7 @@ GameObject:
   - component: {fileID: 824885094}
   - component: {fileID: 824885093}
   - component: {fileID: 824885092}
+  - component: {fileID: 824885095}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1926,7 +1927,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 824885093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1838182157}
+        m_TargetAssemblyTypeName: CheckButton, Assembly-CSharp
+        m_MethodName: WylosowaneLiczbyZJavaScript
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &824885093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,6 +1978,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824885090}
   m_CullTransparentMesh: 1
+--- !u!114 &824885095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824885090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6b9839214a51c48869eeb6233a713f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &929250489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,7 +3685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53812be9d911404d845d800bfa85ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 7
+  delay: 8
   batchSize: 2
   insect: {fileID: 4515075361192507926, guid: 7025f3d22c26b234e83f64ac896c1562, type: 3}
 --- !u!4 &1656185336
@@ -3999,6 +4024,8 @@ GameObject:
   - component: {fileID: 1838182155}
   - component: {fileID: 1838182154}
   - component: {fileID: 1838182153}
+  - component: {fileID: 1838182157}
+  - component: {fileID: 1838182158}
   m_Layer: 5
   m_Name: Heuristics
   m_TagString: Untagged
@@ -4099,6 +4126,40 @@ RectTransform:
   m_AnchoredPosition: {x: 576.9, y: 260.4}
   m_SizeDelta: {x: 1154, y: 521}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1838182157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838182152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6b9839214a51c48869eeb6233a713f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838182158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838182152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bf0bd4ded61a34f9be34f6738e4010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _url: 
+  _width: 512
+  _height: 512
+  generateMipmap: 0
+  baseColor:
+    serializedVersion: 2
+    rgba: 0
+  _zoom: 0
+  allowContextMenuOn: 2
+  newWindowAction: 2
 --- !u!1 &1852268413
 GameObject:
   m_ObjectHideFlags: 0

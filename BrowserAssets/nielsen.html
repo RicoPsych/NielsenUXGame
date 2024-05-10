@@ -3,21 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interaktywna gra do nauki heurystyk Nielsena</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>MSI BETA</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Interaktywna gra do nauki heurystyk Nielsena</h1>
+        <h1>Zamów bluzę!</h1>
         <form id="gameForm">
-            <label for="postalCode">Podaj kod pocztowy (w formacie xx-xxx):</label>
-            <input type="text" id="postalCode" name="postalCode" required pattern="[0-9]{2}-[0-9]{3}">
-            <button type="submit">Sprawdź</button>
+            
+            <input type="text" id="name" name="name" required placeholder="Imię">
+
+            <input type="text" id="surname" name="surname" required placeholder="Nazwisko">
+
+            <input type="text" id="city" name="city" required placeholder="Miasto">
+
+            <input type="text" id="street" name="street" required placeholder="Ulica">
+
+            <input type="text" id="streetNumber" name="streetNumber" required placeholder="Nr ulicy">
+
+            <input type="text" id="houseNumber" name="houseNumber" placeholder="Nr mieszkania">
+
+            <input type="text" id="postalCode" name="postalCode" required pattern="[0-9]{2}-[0-9]{3}" placeholder="Kod pocztowy __-___">
+
+            <label for="color">Kolor</label>
+            <select id="color" name="color" required placeholder="">
+                <option value="">Wybierz kolor</option>
+                <option value="czerwony">Czerwony</option>
+                <option value="zielony">Zielony</option>
+                <option value="niebieski">Niebieski</option>
+                <option value="żółty">Żółty</option>
+                <!-- Dodaj inne opcje kolorów, jeśli jest taka potrzeba -->
+            </select>
+
+            <label for="size">Rozmiar</label>
+            <select id="size" name="size" required>
+                <option value="">Wybierz rozmiar</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <!-- Dodaj inne opcje rozmiarów, jeśli jest taka potrzeba -->
+            </select>
+
+            <button type="submit" id="submitButton">Zamów</button>
         </form>
-        <div class="heuristic-container" id="heuristicContainer">
-            <!-- Tutaj będzie wyświetlany losowany tekst -->
-        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
