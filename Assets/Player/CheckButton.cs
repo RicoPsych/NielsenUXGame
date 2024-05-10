@@ -19,17 +19,7 @@ public class CheckButton : MonoBehaviour
     }
     public void WylosowaneLiczbyZJavaScript()
     {
-        browser.GetComponent<Browser>().CallFunction("PrzekazWylosowaneLiczbyDoUnity").Done();
+        browser.GetComponent<Browser>().CallFunction("PrzekazWylosowaneLiczbyDoUnity").Then(ret => Debug.Log("Wylosowane liczby: " + ret)).Done();
     }
-    public void PrzyjmijWylosowaneLiczby(string jsonString)
-    {
-        // Przetwarzanie danych
-        int[] wylosowaneLiczby = JsonUtility.FromJson<int[]>(jsonString);
 
-        // Wykonaj odpowiednie działania z wylosowanymi liczbami
-        foreach (int liczba in wylosowaneLiczby)
-        {
-            Debug.Log("Wylosowana liczba: " + liczba);
-        }
-    }
 }

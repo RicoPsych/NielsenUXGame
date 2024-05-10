@@ -110,8 +110,7 @@ form.addEventListener("submit", function(event) {
 });
 
 function PrzekazWylosowaneLiczbyDoUnity() {
-    // Przekazanie danych do Unity za pomocą funkcji SendMessage
-    UnitySendMessage("CheckButton", "PrzyjmijWylosowaneLiczby", JSON.stringify(wylosowaneLiczby));
+    return JSON.stringify(choosenBadHeuristics);
 }
 
 // Losuj i modyfikuj heurystyki przy ładowaniu strony

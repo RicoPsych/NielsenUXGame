@@ -1871,9 +1871,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824885090}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 0.029999997, y: 0.03, z: 0.029999997}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1344505821}
@@ -1881,7 +1881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -568.94, y: -262.24}
+  m_AnchoredPosition: {x: -568.9401, y: -262.2402}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824885092
@@ -4331,7 +4331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 180570, guid: 386844d22c1dfdb4baea57a96fbad4db, type: 3}
       propertyPath: m_Name
-      value: Browser (Mouse)
+      value: ScreenBrowser
       objectReference: {fileID: 0}
     - target: {fileID: 478616, guid: 386844d22c1dfdb4baea57a96fbad4db, type: 3}
       propertyPath: m_LocalScale.x
