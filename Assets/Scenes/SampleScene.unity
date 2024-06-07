@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53812be9d911404d845d800bfa85ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 8
+  delay: 20
   batchSize: 2
   insect: {fileID: 4515075361192507926, guid: 7025f3d22c26b234e83f64ac896c1562, type: 3}
 --- !u!4 &1656185336

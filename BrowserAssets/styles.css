@@ -15,8 +15,8 @@
     width: 29%;
 }
 .images{
-  width: 300px;
-  height: 300px;
+  width: 40%;
+  height: 40%;
   float: left;
   margin-right: 20px;
 }
@@ -96,22 +96,17 @@ h1 {
   margin-bottom: 20px;
   font-size: 70px;
 }
+
+
 .checkbox-container {
   display: flex;
-  align-items: center;
+  align-items: start;
   margin: 5px !important;
   padding: 5px !important;
 }
 
-.checkbox-container input[type="checkbox"] {
-  margin: 0 !important; /* Resetuj marginesy */
-}
-
-#checkbox1 {
-  margin: 5px !important;
-  padding: 5px !important;
-}
-.checkbox-label {
+#checkbox1, #checkbox2, #checkbox3, #checkbox4, #checkbox-all {
+  width: 5%;
   margin: 5px !important;
   padding: 5px !important;
 }
