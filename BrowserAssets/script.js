@@ -1,5 +1,5 @@
 document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
-var activeHeuristics = [2,5,6,8];
+var activeHeuristics = [1,2,5,6,8];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
@@ -31,6 +31,9 @@ function chanceReturn(x,y){
 function doBadHeuristics(badHeuristics){
     for(let element of badHeuristics){
         switch(element){
+            case 1:
+                doBadHeuristic1();
+            break;
             case 2:
                 doBadHeuristic2();
             break;
@@ -45,6 +48,14 @@ function doBadHeuristics(badHeuristics){
             break;
         }
     }
+}
+
+function doBadHeuristic1(){
+    var progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        progressBar.remove();
+    }
+    console.log("BAD HEURISTIC 1");
 }
 
 function doBadHeuristic2(){
@@ -94,6 +105,10 @@ function doBadHeuristic6(){ //done
 }
 function doBadHeuristic8(){
     
+    var divs = document.querySelectorAll(".toomuch");
+    divs.forEach(function(div) {
+        div.style.display = "block";
+    });
     console.log("BAD HEURISTIC 8");
 }
 
