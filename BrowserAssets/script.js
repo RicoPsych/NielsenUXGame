@@ -1,5 +1,5 @@
 document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
-var activeHeuristics = [1,2,5,6,8];
+var activeHeuristics = [1,2,5,6,7,8];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
@@ -10,6 +10,7 @@ function drawHeuristics(){
         if(chanceReturn(i,remainingHeuristics.length)){
             var index = randomNumber(0,remainingHeuristics.length-1);
             choosenBadHeuristics.push(remainingHeuristics[index]);
+            //2 i 6 nie wykonają się jednocześnie, wylosuje się jedna lub żadna
             if(remainingHeuristics[index] == 6){
                 remainingHeuristics.splice(index,1);
                 var ind = remainingHeuristics.indexOf(2);
@@ -60,7 +61,9 @@ function doBadHeuristics(badHeuristics){
             break;
             case 6:
                 doBadHeuristic6();
-
+            break;
+            case 7: 
+                doBadHeuristic7();
             break;
             case 8: 
                 doBadHeuristic8();
@@ -128,6 +131,10 @@ function doBadHeuristic5(){ //Done
     document.getElementById('postalCode').removeAttribute("pattern");
     document.getElementById('size').removeAttribute("required");
     document.getElementById('color').removeAttribute("required");
+    document.getElementById('checkbox1').removeAttribute("required");
+    document.getElementById('checkbox2').removeAttribute("required");
+    document.getElementById('checkbox3').removeAttribute("required");
+    document.getElementById('checkbox4').removeAttribute("required");
 
     document.getElementById("postalCode").setCustomValidity("");
 
@@ -158,6 +165,13 @@ function doBadHeuristic6(){ //done
     sizeSelect.parentNode.replaceChild(sizeInput, sizeSelect);
 
     console.log("BAD HEURISTIC 6");
+}
+function doBadHeuristic7(){
+    var checkboxall = document.getElementById("checkboxalldiv")
+    if (checkboxall) {
+        checkboxall.remove();
+    }
+    console.log("BAD HEURISTIC 7"); 
 }
 function doBadHeuristic8(){
     
@@ -190,6 +204,15 @@ form.addEventListener("submit", function(event) {
 function PrzekazWylosowaneLiczbyDoUnity() {
     return JSON.stringify(choosenBadHeuristics);
 }
+
+//Zaznacz wszystko
+var selectAllCheckbox = document.getElementById('checkbox-all');
+var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+selectAllCheckbox.addEventListener('change', function() {
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+});
 
 // Losuj i modyfikuj heurystyki przy ładowaniu strony
 window.onload = drawHeuristics;

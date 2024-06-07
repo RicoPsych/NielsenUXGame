@@ -96,3 +96,22 @@ h1 {
   margin-bottom: 20px;
   font-size: 70px;
 }
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin: 5px !important;
+  padding: 5px !important;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin: 0 !important; /* Resetuj marginesy */
+}
+
+#checkbox1 {
+  margin: 5px !important;
+  padding: 5px !important;
+}
+.checkbox-label {
+  margin: 5px !important;
+  padding: 5px !important;
+}
