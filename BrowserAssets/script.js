@@ -10,10 +10,28 @@ function drawHeuristics(){
         if(chanceReturn(i,remainingHeuristics.length)){
             var index = randomNumber(0,remainingHeuristics.length-1);
             choosenBadHeuristics.push(remainingHeuristics[index]);
-            remainingHeuristics.splice(index,1);
+            if(remainingHeuristics[index] == 6){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(2);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else if(remainingHeuristics[index] == 2){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(6);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else{
+                remainingHeuristics.splice(index,1);
+            }
+            
         }
     }
-    //UnitySendMessage("","", JSON.stringify(choosenBadHeuristics));
     doBadHeuristics(choosenBadHeuristics);
 }
 
@@ -42,8 +60,9 @@ function doBadHeuristics(badHeuristics){
             break;
             case 6:
                 doBadHeuristic6();
+
             break;
-            case 8:
+            case 8: 
                 doBadHeuristic8();
             break;
         }
@@ -59,6 +78,43 @@ function doBadHeuristic1(){
 }
 
 function doBadHeuristic2(){
+    var newColorOptions = [
+        {value: "", text: "Wybierz kod hex"},
+        {value: "#FF0000", text: "#FF0000"},
+        {value: "#00FF00", text: "#00FF00"},
+        {value: "#0000FF", text: "#0000FF"},
+        {value: "#FFFF00", text: "#FFFF00"},
+        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
+    ];
+    var newSizeOptions = [
+        {value: "", text: "Wybierz rozmiar"},
+        {value: "S", text: "najmniejszy"},
+        {value: "m", text: "dość średni"},
+        {value: "l", text: "chyba spory"},
+        {value: "xl", text: "dość spory"},
+        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
+    ];
+
+    var colorSelect = document.getElementById("color");
+    var sizeSelect = document.getElementById("size");
+
+    colorSelect.innerHTML = "";
+    sizeSelect.innerHTML = "";
+
+    newColorOptions.forEach(function(option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.text = option.text;
+        colorSelect.appendChild(optionElement);
+    });
+
+    newSizeOptions.forEach(function(option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.text = option.text;
+        sizeSelect.appendChild(optionElement);
+    });
+
     console.log("BAD HEURISTIC 2");
 }
 function doBadHeuristic5(){ //Done
@@ -108,6 +164,13 @@ function doBadHeuristic8(){
     var divs = document.querySelectorAll(".toomuch");
     divs.forEach(function(div) {
         div.style.display = "block";
+        var marquees = div.querySelectorAll("marquee");
+        marquees.forEach(function(marquee) {
+            var parent = marquee.parentNode;
+            var next = marquee.nextSibling;
+            parent.removeChild(marquee);
+            parent.insertBefore(marquee, next);
+        });
     });
     console.log("BAD HEURISTIC 8");
 }
