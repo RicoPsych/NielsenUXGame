@@ -7,47 +7,195 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Zamów bluzę!</h1>
-        <form id="gameForm">
-            
-            <input type="text" id="name" name="name" required placeholder="Imię">
-
-            <input type="text" id="surname" name="surname" required placeholder="Nazwisko">
-
-            <input type="text" id="city" name="city" required placeholder="Miasto">
-
-            <input type="text" id="street" name="street" required placeholder="Ulica">
-
-            <input type="text" id="streetNumber" name="streetNumber" required placeholder="Nr ulicy">
-
-            <input type="text" id="houseNumber" name="houseNumber" placeholder="Nr mieszkania">
-
-            <input type="text" id="postalCode" name="postalCode" required pattern="[0-9]{2}-[0-9]{3}" placeholder="Kod pocztowy __-___">
-
-            <label for="color">Kolor</label>
-            <select id="color" name="color" required placeholder="">
-                <option value="">Wybierz kolor</option>
-                <option value="czerwony">Czerwony</option>
-                <option value="zielony">Zielony</option>
-                <option value="niebieski">Niebieski</option>
-                <option value="żółty">Żółty</option>
-                <!-- Dodaj inne opcje kolorów, jeśli jest taka potrzeba -->
-            </select>
-
-            <label for="size">Rozmiar</label>
-            <select id="size" name="size" required>
-                <option value="">Wybierz rozmiar</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <!-- Dodaj inne opcje rozmiarów, jeśli jest taka potrzeba -->
-            </select>
-
-            <button type="submit" id="submitButton">Zamów</button>
-        </form>
+    <h1>Zamów bluzę!</h1>
+        <div class="progress-bar">
+        <div class="step completed">Przeglądanie</div>
+        <div class="step completed">Typ płatności</div>
+        <div class="step active">Dostawa</div>
     </div>
+    <div class="wrapper">
+        <div class="left-div">
+            <div class="toomuch">
+                <img src="images/1.jpg" alt="Placeholder image" class="images">
+                <p>
+                    Na obrazie widnieją dwie bluzy, które od razu przyciągają wzrok swoim jasno różowym kolorem, dodającym im uroku i wyjątkowego charakteru. 
+                    Bluzy są wykonane z miękkiego, wysokiej jakości materiału, który wygląda na bardzo przyjemny w dotyku i zapewnia komfort noszenia, idealne na chłodniejsze dni.
+                </p>
+                <marquee>Kup mnie!</marquee>
+                <p>
+                    Bluza dla Kobiety
+                    Bluza dla kobiety ma dopasowany krój, który delikatnie podkreśla sylwetkę. 
+                    Jest wyposażona w kaptur ze sznurkami do regulacji, które umożliwiają idealne dopasowanie i ochronę przed wiatrem. 
+                    Na przedniej części bluzy znajduje się napis "Dobra Świnka", wykonany dużymi, białymi literami, które wyraźnie kontrastują z różowym tłem, tworząc zabawny i przyciągający wzrok efekt. 
+                    Litery są starannie rozmieszczone, z równymi odstępami między nimi, co podkreśla dbałość o detale. 
+                    Bluza ma długie rękawy, zakończone szerokimi, elastycznymi mankietami, które zapewniają wygodę i zapobiegają podwijaniu się materiału. 
+                    Dolna część bluzy również jest wykończona elastycznym ściągaczem, który gwarantuje idealne dopasowanie do ciała.
+                </p>
+                <marquee>Kup mnie, dobra świnko!</marquee>
+                <p>
+                    Bluza dla Mężczyzny
+                    Bluza dla mężczyzny ma nieco luźniejszy, bardziej swobodny krój, który zapewnia wygodę i swobodę ruchów, co jest ważne w codziennym użytkowaniu. 
+                    Na jej przedniej części widnieje napis "Dobry Knur", również wykonany białymi literami, które są większe i bardziej wyraziste w porównaniu do napisu na damskiej bluzie, 
+                    co nadaje jej męskiego charakteru. Litery są grubsze i bardziej wyraziste, co dodaje napisowi mocniejszego akcentu. Bluza posiada duży, wygodny kaptur z sznurkami do regulacji, 
+                    a także długie rękawy zakończone szerokimi mankietami. Dolna krawędź bluzy jest również wykończona elastycznym ściągaczem, co zapewnia spójny wygląd i dodatkową wygodę noszenia.
+                </p>
+                <marquee>Kup mnie, soczysty knurze!</marquee>
+                <p>    
+                    Materiał i Detale
+                    Obie bluzy są wykonane z wysokiej jakości mieszanki bawełny i poliestru, co sprawia, że są one ciepłe, trwałe i wygodne. 
+                    Materiał wygląda na miękki i przyjemny w dotyku, co zapewnia komfort noszenia przez cały dzień. Kaptury są wyłożone miękką tkaniną, 
+                    która dodatkowo podnosi komfort noszenia. Sznurki przy kapturach są zakończone metalowymi końcówkami, co dodaje im elegancji i zapewnia trwałość.
+                </p>
+                <marquee>Za każdą zakupioną bluzę ratujesz życie jednej niewinnej świnki</marquee>
+                <p>    
+                    Dodatkowe Funkcje
+                    Bluzy mają praktyczne kieszenie kangurkowe na przedniej części, które są nie tylko stylowym elementem, ale także bardzo funkcjonalnym, 
+                    umożliwiającym przechowywanie drobnych przedmiotów lub ogrzanie rąk. Szwy są solidnie wykonane, co gwarantuje trwałość bluzy nawet przy intensywnym użytkowaniu. 
+                    Elastyczne mankiety i dolne ściągacze zapewniają, że bluzy dobrze przylegają do ciała, nie krępując ruchów i nie podwijając się. 
+                </p>
+                <button>Kup mnie teraz!</button>
+                <marquee>Przy produkcji bluz nie ucierpiała żadna świnka</marquee>
+            </div>
+        </div>
+        <div class="container">
+            <form id="gameForm">
+                
+                <input type="text" id="name" name="name" required placeholder="Imię">
+    
+                <input type="text" id="surname" name="surname" required placeholder="Nazwisko">
+    
+                <input type="text" id="city" name="city" required placeholder="Miasto">
+    
+                <input type="text" id="street" name="street" required placeholder="Ulica">
+    
+                <input type="text" id="streetNumber" name="streetNumber" required placeholder="Nr ulicy">
+    
+                <input type="text" id="houseNumber" name="houseNumber" placeholder="Nr mieszkania">
+    
+                <input type="text" id="postalCode" name="postalCode" required pattern="[0-9]{2}-[0-9]{3}" placeholder="Kod pocztowy __-___">
+    
+                <label for="color">Kolor</label>
+                <select id="color" name="color" required placeholder="">
+                    <option value="">Wybierz kolor</option>
+                    <option value="czerwony">Czerwony</option>
+                    <option value="zielony">Zielony</option>
+                    <option value="niebieski">Niebieski</option>
+                    <option value="żółty">Żółty</option>
+                    <!-- Dodaj inne opcje kolorów, jeśli jest taka potrzeba -->
+                </select>
+    
+                <label for="size">Rozmiar</label>
+                <select id="size" name="size" required>
+                    <option value="">Wybierz rozmiar</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <!-- Dodaj inne opcje rozmiarów, jeśli jest taka potrzeba -->
+                </select>
+                <div id="checkboxalldiv" class="checkbox-container" >
+                    <input type="checkbox" id="checkbox-all" name="checkbox1" value="1" >
+                    <label for="checkbox-all" class="checkbox-label">Zaznacz wszystko</label>
+                </div>
+                <div class="checkbox-container" >
+                    <input type="checkbox" id="checkbox1" name="checkbox1" value="1" required>
+                    <label for="checkbox1" class="checkbox-label">Wyrażam zgodę na użycie swojego imienia <span style="color: red;">*</span></label>
+                </div>
+                <div class="checkbox-container" >
+                    <input type="checkbox" id="checkbox2" name="checkbox2" value="1" required>
+                    <label for="checkbox2" class="checkbox-label">Wyrażam zgodę na użycie swojego nazwiska <span style="color: red;">*</span></label>
+                </div>
+                <div class="checkbox-container" >
+                    <input type="checkbox" id="checkbox3" name="checkbox3" value="1" required>
+                    <label for="checkbox3" class="checkbox-label">Wyrażam zgodę na użycie swojego adresu <span style="color: red;">*</span></label>
+                </div>
+                <div class="checkbox-container" >
+                    <input type="checkbox" id="checkbox4" name="checkbox4" value="1" required>
+                    <label for="checkbox4" class="checkbox-label">Wyrażam zgodę na użycie swojego wyboru bluzy <span style="color: red;">*</span></label>
+                </div>
+    
+                <button type="submit" id="submitButton" class="zamow">Zamów</button>
+            </form>
+            <div class="toomuch">
+                <img src="images/3.png" alt="Placeholder image" class="images">
+                <p>
+                    Bluza ma klasyczny, luźny krój, który zapewnia komfort i swobodę ruchów. Wykonana jest z miękkiej, 
+                    wysokiej jakości mieszanki bawełny i poliestru, co sprawia, że jest ciepła i trwała, idealna na chłodniejsze dni. 
+                    Na przedniej części bluzy znajduje się duży, wyraźny nadruk emoji ¯\(ツ)/¯ oraz napis "dziwne u mnie działa".
+                </p>
+                <marquee>u mnie działa!</marquee>
+                <p>
+                    Nadruk jest wykonany z najwyższą starannością, z białymi literami i grafiką kontrastującą z tłem bluzy, 
+                    co sprawia, że jest on dobrze widoczny i przyciąga wzrok. 
+                    Bluza wyposażona jest w duży kaptur ze sznurkami do regulacji, zapewniającymi idealne dopasowanie i ochronę przed wiatrem.
+                </p>
+                <marquee>Próbowałeś wyłączyć i włączyć?</marquee>
+                <p>
+                    Długie rękawy i dolna krawędź bluzy są zakończone szerokimi, 
+                    elastycznymi mankietami, co gwarantuje wygodę noszenia i zapobiega podwijaniu się materiału. 
+                    Praktyczna kieszeń kangurkowa na przedniej części dodaje funkcjonalności, 
+                    umożliwiając przechowywanie drobnych przedmiotów lub ogrzanie rąk.
+                </p>
+                <marquee>Usuń system32</marquee>
+                <p>
+                    Ten krótki, ale szczegółowy opis podkreśla zarówno estetyczne, jak i praktyczne cechy bluzy, czyniąc ją atrakcyjną dla potencjalnych użytkowników.
+                </p>
+                <button>Kup mnie teraz!</button>
+                <marquee>I tak nikt tego nie czyta</marquee>
+            </div>
+        </div>
+        <div class="right-div">
+            <div class="toomuch">
+                <img src="images/2.jpg" alt="Placeholder image" class="images">
+                <p>
+                    Na zdjęciu widnieją dwie bluzy, które przyciągają wzrok swoim żywym, niebieskim kolorem oraz zabawnymi nadrukami związanych z tematyką ciastek i Ciasteczkowego Potwora. 
+                    Oba modele bluzy są wykonane z wysokiej jakości materiałów, zapewniających komfort noszenia i trwałość, co czyni je idealnym wyborem na chłodniejsze dni.
+                </p>
+                <marquee>Musisz mnie mieć!</marquee>
+                <p>
+
+                    Bluza z Ciasteczkowym Potworem
+                    Bluza ta ma standardowy, luźny krój, który zapewnia wygodę i swobodę ruchów. Na przedniej części bluzy znajduje się duży, 
+                    kolorowy nadruk przedstawiający Ciasteczkowego Potwora w typowej dla siebie pozie – jedzącego ciastka. Nadruk jest wykonany z najwyższą dbałością o szczegóły, z żywymi, 
+                    intensywnymi kolorami, które doskonale oddają charakter tej postaci. Ciasteczkowy Potwór, z szeroko otwartymi ustami pełnymi ciastek, 
+                    wygląda, jakby właśnie pożerał swoje ulubione przekąski, co nadaje bluzie zabawnego i przyciągającego wzrok charakteru. Bluza wyposażona jest w duży, 
+                    wygodny kaptur ze sznurkami do regulacji, które umożliwiają idealne dopasowanie i ochronę przed wiatrem. Długie rękawy zakończone są szerokimi, elastycznymi mankietami, 
+                    które zapewniają wygodę i zapobiegają podwijaniu się materiału. Dolna część bluzy również jest wykończona elastycznym ściągaczem, co gwarantuje idealne dopasowanie do ciała.
+                </p>
+                <marquee>OM MOM MOM OM MOM MOM OM OM MOM OM MOM MOM MOM OM MO M</marquee>
+                <p>
+
+                    Bluza z Ciasteczkami i Napisem "COOKIE OM NOM"
+                    Druga bluza również ma luźny, wygodny krój, ale na jej przedniej części znajduje się inny nadruk – kilka dużych, realistycznie wyglądających ciastek. 
+                    Nadruk przedstawia ciasteczka w różnych pozycjach, niektóre w całości, inne nadgryzione, co dodaje dynamizmu i wrażenia, jakby ciasteczka były właśnie zjadane. 
+                    Nad ciastkami widnieje duży, zabawny napis "COOKIE OM NOM", wykonany białymi literami, które wyraźnie kontrastują z niebieskim tłem bluzy. 
+                    Napis i grafika są starannie wykonane, z równymi odstępami między literami i elementami graficznymi, co podkreśla dbałość o detale. 
+                    Bluza ma klasyczny kaptur ze sznurkami do regulacji, a także długie rękawy zakończone szerokimi mankietami, które zapewniają wygodę i stylowy wygląd. 
+                    Dolna krawędź bluzy również jest wykończona elastycznym ściągaczem, co zapewnia spójny wygląd i dodatkową wygodę noszenia.
+                </p>
+                <marquee>COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOKIES</marquee>
+                <p>
+
+                    Materiał i Detale
+                    Obie bluzy są wykonane z miękkiej, wysokiej jakości mieszanki bawełny i poliestru, co sprawia, że są ciepłe, trwałe i wygodne. 
+                    Materiał jest przyjemny w dotyku, co zapewnia komfort noszenia przez cały dzień. Kaptury są wyłożone miękką tkaniną, która dodatkowo podnosi komfort noszenia. 
+                    Sznurki przy kapturach są zakończone metalowymi końcówkami, co dodaje im elegancji i zapewnia trwałość. 
+                    Nadruki są wykonane techniką zapewniającą ich trwałość, dzięki czemu nie blakną i nie pękają nawet po wielu praniach.
+                </p>
+                <marquee>Ciasteczka?</marquee>
+                <p>
+                    Dodatkowe Funkcje
+                    Bluzy mają praktyczne kieszenie kangurkowe na przedniej części, które są nie tylko stylowym elementem, 
+                    ale także bardzo funkcjonalnym, umożliwiającym przechowywanie drobnych przedmiotów lub ogrzanie rąk. 
+                    Szwy są solidnie wykonane, co gwarantuje trwałość bluzy nawet przy intensywnym użytkowaniu. 
+                    Elastyczne mankiety i dolne ściągacze zapewniają, że bluzy dobrze przylegają do ciała, nie krępując ruchów i nie podwijając się.
+                </p>
+                <button>Kup mnie teraz!</button>
+                <marquee>X D</marquee>
+            </div>
+        </div>
+    </div>
+    
     <script src="./script.js"></script>
 </body>
 </html>

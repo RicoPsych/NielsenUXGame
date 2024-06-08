@@ -1,5 +1,5 @@
 document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
-var activeHeuristics = [2,5,6,8];
+var activeHeuristics = [1,2,5,6,7,8];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
@@ -10,10 +10,29 @@ function drawHeuristics(){
         if(chanceReturn(i,remainingHeuristics.length)){
             var index = randomNumber(0,remainingHeuristics.length-1);
             choosenBadHeuristics.push(remainingHeuristics[index]);
-            remainingHeuristics.splice(index,1);
+            //2 i 6 nie wykonają się jednocześnie, wylosuje się jedna lub żadna
+            if(remainingHeuristics[index] == 6){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(2);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else if(remainingHeuristics[index] == 2){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(6);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else{
+                remainingHeuristics.splice(index,1);
+            }
+            
         }
     }
-    //UnitySendMessage("","", JSON.stringify(choosenBadHeuristics));
     doBadHeuristics(choosenBadHeuristics);
 }
 
@@ -31,6 +50,9 @@ function chanceReturn(x,y){
 function doBadHeuristics(badHeuristics){
     for(let element of badHeuristics){
         switch(element){
+            case 1:
+                doBadHeuristic1();
+            break;
             case 2:
                 doBadHeuristic2();
             break;
@@ -40,14 +62,62 @@ function doBadHeuristics(badHeuristics){
             case 6:
                 doBadHeuristic6();
             break;
-            case 8:
+            case 7: 
+                doBadHeuristic7();
+            break;
+            case 8: 
                 doBadHeuristic8();
             break;
         }
     }
 }
 
+function doBadHeuristic1(){
+    var progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        progressBar.remove();
+    }
+    console.log("BAD HEURISTIC 1");
+}
+
 function doBadHeuristic2(){
+    var newColorOptions = [
+        {value: "", text: "Wybierz kod hex"},
+        {value: "#FF0000", text: "#FF0000"},
+        {value: "#00FF00", text: "#00FF00"},
+        {value: "#0000FF", text: "#0000FF"},
+        {value: "#FFFF00", text: "#FFFF00"},
+        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
+    ];
+    var newSizeOptions = [
+        {value: "", text: "Wybierz rozmiar"},
+        {value: "S", text: "najmniejszy"},
+        {value: "m", text: "dość średni"},
+        {value: "l", text: "chyba spory"},
+        {value: "xl", text: "dość spory"},
+        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
+    ];
+
+    var colorSelect = document.getElementById("color");
+    var sizeSelect = document.getElementById("size");
+
+    colorSelect.innerHTML = "";
+    sizeSelect.innerHTML = "";
+
+    newColorOptions.forEach(function(option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.text = option.text;
+        colorSelect.appendChild(optionElement);
+    });
+
+    newSizeOptions.forEach(function(option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.text = option.text;
+        sizeSelect.appendChild(optionElement);
+    });
+
     console.log("BAD HEURISTIC 2");
 }
 function doBadHeuristic5(){ //Done
@@ -61,6 +131,10 @@ function doBadHeuristic5(){ //Done
     document.getElementById('postalCode').removeAttribute("pattern");
     document.getElementById('size').removeAttribute("required");
     document.getElementById('color').removeAttribute("required");
+    document.getElementById('checkbox1').removeAttribute("required");
+    document.getElementById('checkbox2').removeAttribute("required");
+    document.getElementById('checkbox3').removeAttribute("required");
+    document.getElementById('checkbox4').removeAttribute("required");
 
     document.getElementById("postalCode").setCustomValidity("");
 
@@ -92,8 +166,26 @@ function doBadHeuristic6(){ //done
 
     console.log("BAD HEURISTIC 6");
 }
+function doBadHeuristic7(){
+    var checkboxall = document.getElementById("checkboxalldiv")
+    if (checkboxall) {
+        checkboxall.remove();
+    }
+    console.log("BAD HEURISTIC 7"); 
+}
 function doBadHeuristic8(){
     
+    var divs = document.querySelectorAll(".toomuch");
+    divs.forEach(function(div) {
+        div.style.display = "block";
+        var marquees = div.querySelectorAll("marquee");
+        marquees.forEach(function(marquee) {
+            var parent = marquee.parentNode;
+            var next = marquee.nextSibling;
+            parent.removeChild(marquee);
+            parent.insertBefore(marquee, next);
+        });
+    });
     console.log("BAD HEURISTIC 8");
 }
 
@@ -112,6 +204,15 @@ form.addEventListener("submit", function(event) {
 function PrzekazWylosowaneLiczbyDoUnity() {
     return JSON.stringify(choosenBadHeuristics);
 }
+
+//Zaznacz wszystko
+var selectAllCheckbox = document.getElementById('checkbox-all');
+var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+selectAllCheckbox.addEventListener('change', function() {
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+});
 
 // Losuj i modyfikuj heurystyki przy ładowaniu strony
 window.onload = drawHeuristics;
