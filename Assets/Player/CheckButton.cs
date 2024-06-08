@@ -8,6 +8,9 @@ using TMPro;
 
 public class CheckButton : MonoBehaviour
 {
+    private int correct;
+    private int wrong;
+
     [System.Serializable]
     public class HeuristicsData
     {
@@ -17,6 +20,9 @@ public class CheckButton : MonoBehaviour
     private List<GameObject> toggles = new List<GameObject>();
     void Start()
     {
+        correct= 0;
+        wrong = 0;
+
         browser = GameObject.Find("ScreenBrowser");
         toggles.Add(GameObject.Find("1"));
         toggles.Add(GameObject.Find("2"));
@@ -57,9 +63,22 @@ public class CheckButton : MonoBehaviour
                 }
             }
         }
-        GameObject.Find("Score").GetComponent<TMP_Text>().text = "Score: "+actualMark+"/10!";
 
+        if(actualMark==10){
+            correct +=1;
+            foreach (var toggle in toggles){
+                toggle.GetComponent<Toggle>().isOn = false;
+            }
+            browser.GetComponent<Browser>().Reload();
+        }
+        else{
+            wrong+=1;
+        }
+        
 
+    //    GameObject.Find("Score").GetComponent<TMP_Text>().text = $"UI Score: {actualMark}/10!\nCorrect:{correct} Wrong:{wrong}";
+        GameObject.Find("Score").GetComponent<TMP_Text>().text = $" Wynik UI:{actualMark}/10!\nWynik Gracza:{correct}/{correct+wrong}";
+    
     }
 
 }
