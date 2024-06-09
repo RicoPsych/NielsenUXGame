@@ -1,10 +1,10 @@
-document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
+
 var activeHeuristics = [1,2,4,5,6,7,8,10];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
 function drawHeuristics(){
-    
+    //document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
     var remainingHeuristics = activeHeuristics;
     for(var i=remainingHeuristics.length-1; i>=1; i--){
         if(chanceReturn(i,remainingHeuristics.length)){
