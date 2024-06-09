@@ -1,5 +1,5 @@
 document.getElementById("postalCode").setCustomValidity("Podaj kod pocztowy w poprawnym formacie (xx-xxx).");
-var activeHeuristics = [1,2,5,6,7,8];
+var activeHeuristics = [1,2,4,5,6,7,8,10];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
@@ -56,6 +56,9 @@ function doBadHeuristics(badHeuristics){
             case 2:
                 doBadHeuristic2();
             break;
+            case 4:
+                doBadHeuristic4();
+            break;
             case 5:
                 doBadHeuristic5();
             break;
@@ -67,6 +70,9 @@ function doBadHeuristics(badHeuristics){
             break;
             case 8: 
                 doBadHeuristic8();
+            break;
+            case 10:
+                doBadHeuristic10();
             break;
         }
     }
@@ -82,7 +88,7 @@ function doBadHeuristic1(){
 
 function doBadHeuristic2(){
     var newColorOptions = [
-        {value: "", text: "Wybierz kod hex"},
+        {value: "", text: "Wybierz kolor bluzy"},
         {value: "#FF0000", text: "#FF0000"},
         {value: "#00FF00", text: "#00FF00"},
         {value: "#0000FF", text: "#0000FF"},
@@ -91,7 +97,7 @@ function doBadHeuristic2(){
     ];
     var newSizeOptions = [
         {value: "", text: "Wybierz rozmiar"},
-        {value: "S", text: "najmniejszy"},
+        {value: "s", text: "najmniejszy"},
         {value: "m", text: "dość średni"},
         {value: "l", text: "chyba spory"},
         {value: "xl", text: "dość spory"},
@@ -119,6 +125,40 @@ function doBadHeuristic2(){
     });
 
     console.log("BAD HEURISTIC 2");
+}
+function doBadHeuristic4(){
+    var form = document.getElementById("gameForm");
+    var elements = Array.from(form.children);
+    
+    // Filtrowanie inputów i selectów, wyłączając checkboxy i button submit
+    var inputsAndSelects = elements.filter(function(element) {
+        return (element.tagName === "INPUT" && element.type !== "checkbox" && element.type !== "submit") || element.tagName === "SELECT";
+    });
+
+    // Losowe mieszanie tablicy inputów i selectów
+    for (let i = inputsAndSelects.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [inputsAndSelects[i], inputsAndSelects[j]] = [inputsAndSelects[j], inputsAndSelects[i]];
+    }
+
+    // Usunięcie wszystkich inputów i selectów z formularza
+    inputsAndSelects.forEach(function(element) {
+        form.removeChild(element);
+    });
+
+    // Ponowne dodanie pozostałych elementów (checkboxy i submit button) do formularza
+    elements.forEach(function(element) {
+        if ((element.tagName === "INPUT" && (element.type === "checkbox" || element.type === "submit")) || element.tagName === "DIV") {
+            form.appendChild(element);
+        }
+    });
+
+    // Dodanie wymieszanych inputów i selectów na początku formularza
+    inputsAndSelects.forEach(function(element) {
+        form.insertBefore(element, form.firstChild);
+    });
+
+    console.log("BAD HEURISTIC 4");
 }
 function doBadHeuristic5(){ //Done
     document.getElementById('name').removeAttribute("required");
@@ -187,6 +227,11 @@ function doBadHeuristic8(){
         });
     });
     console.log("BAD HEURISTIC 8");
+}
+function doBadHeuristic10(){
+
+    document.getElementById("tooltip").style.display = "none";
+    console.log("BAD HEURISTIC 10");
 }
 
 
