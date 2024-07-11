@@ -8,13 +8,14 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        //Screen.SetResolution(Screen.width, Screen.height);
+        //Screen.SetResolution(1080, 1920,true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void ExitGame(){
