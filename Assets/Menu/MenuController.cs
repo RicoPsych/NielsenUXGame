@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -34,4 +35,13 @@ public class MenuController : MonoBehaviour
         //SceneManager.UnloadSceneAsync("Game");
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Settings(){
+        Debug.Log("Settings");
+        //SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("Settings");
+
+    }
+
+
 }

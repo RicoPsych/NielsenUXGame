@@ -17,9 +17,13 @@ public class CheckButton : MonoBehaviour
         public int[] badHeuristics;
     }
     private GameObject browser;
+    
+    private Player player;
     private List<GameObject> toggles = new List<GameObject>();
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
+
         correct= 0;
         wrong = 0;
 
@@ -69,9 +73,11 @@ public class CheckButton : MonoBehaviour
             foreach (var toggle in toggles){
                 toggle.GetComponent<Toggle>().isOn = false;
             }
+            player.score += 100 * (player.difficulty+1);
             browser.GetComponent<Browser>().Reload();
         }
         else{
+            player.lives-=1;
             wrong+=1;
         }
         
