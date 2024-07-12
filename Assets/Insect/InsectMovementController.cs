@@ -29,8 +29,8 @@ public class InsectMovementController : MonoBehaviour
         var boundPosition = screenRenderer.transform.position;
         frameBounds = new Rect(boundPosition.x - boundSize.x/2,boundPosition.y -  boundSize.y/2, boundSize.x, boundSize.y);
 
-        Debug.Log($"Size {boundSize}");
-        Debug.Log($"Position {boundPosition}");
+        //Debug.Log($"Size {boundSize}");
+       // Debug.Log($"Position {boundPosition}");
         timer = 0f;
         
     }
@@ -136,6 +136,6 @@ public class InsectMovementController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         transform.Rotate(new Vector3(0,0, 180));
         //Instantiate(this);   
-        Debug.Log("Collision Occured");
+        //Debug.Log("Collision Occured");
     }
 }
