@@ -1,5 +1,5 @@
 
-var activeHeuristics = [1,2,4,5,6,7,8,10];
+var activeHeuristics = [1,2,3,4,5,6,7,8,9,10];
 var choosenBadHeuristics = [];
 const form = document.getElementById("gameForm"); 
 
@@ -22,6 +22,45 @@ function drawHeuristics(){
             else if(remainingHeuristics[index] == 2){
                 remainingHeuristics.splice(index,1);
                 var ind = remainingHeuristics.indexOf(6);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else if(remainingHeuristics[index] == 5){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(9);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+                var ind = remainingHeuristics.indexOf(3);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else if(remainingHeuristics[index] == 3){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(5);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+                var ind = remainingHeuristics.indexOf(9);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+            }
+            else if(remainingHeuristics[index] == 9){
+                remainingHeuristics.splice(index,1);
+                var ind = remainingHeuristics.indexOf(5);
+                if (ind !== -1) {
+                    remainingHeuristics.splice(ind, 1);
+                }
+                i--;
+                var ind = remainingHeuristics.indexOf(3);
                 if (ind !== -1) {
                     remainingHeuristics.splice(ind, 1);
                 }
@@ -56,6 +95,9 @@ function doBadHeuristics(badHeuristics){
             case 2:
                 doBadHeuristic2();
             break;
+            case 3:
+                doBadHeuristic3();
+            break;
             case 4:
                 doBadHeuristic4();
             break;
@@ -70,6 +112,9 @@ function doBadHeuristics(badHeuristics){
             break;
             case 8: 
                 doBadHeuristic8();
+            break;
+            case 9:
+                doBadHeuristic9();
             break;
             case 10:
                 doBadHeuristic10();
@@ -93,7 +138,6 @@ function doBadHeuristic2(){
         {value: "#00FF00", text: "#00FF00"},
         {value: "#0000FF", text: "#0000FF"},
         {value: "#FFFF00", text: "#FFFF00"},
-        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
     ];
     var newSizeOptions = [
         {value: "", text: "Wybierz rozmiar"},
@@ -101,7 +145,6 @@ function doBadHeuristic2(){
         {value: "m", text: "dość średni"},
         {value: "l", text: "chyba spory"},
         {value: "xl", text: "dość spory"},
-        // Dodaj inne opcje kolorów, jeśli jest taka potrzeba
     ];
 
     var colorSelect = document.getElementById("color");
@@ -125,6 +168,25 @@ function doBadHeuristic2(){
     });
 
     console.log("BAD HEURISTIC 2");
+}
+function doBadHeuristic3(){
+    var submitButton = document.getElementById("submitButton");
+    var inputs = form.querySelectorAll("input");
+    submitButton.addEventListener("click", function(event) {
+        var isValid = true;
+
+        inputs.forEach(function(input) {
+            if (!input.checkValidity()) {
+                isValid = false;
+                input.reportValidity(); // Pokaż komunikat błędu dla każdego pola
+            }
+        });
+
+        if (!isValid) {
+            form.reset(); // Resetuje formularz do stanu początkowego
+        }
+    });
+    console.log("BAD HEURISTIC 3");
 }
 function doBadHeuristic4(){
     var form = document.getElementById("gameForm");
@@ -228,6 +290,32 @@ function doBadHeuristic8(){
     });
     console.log("BAD HEURISTIC 8");
 }
+function doBadHeuristic9(){
+
+    var form = document.getElementById("gameForm");
+    var inputs = form.querySelectorAll("input");
+    inputs.forEach(function(input){
+        input.addEventListener("invalid", function() {
+            if (!input.value) {
+                input.setCustomValidity("Błąd.");
+            }  else if (input.validity.patternMismatch) {
+                input.setCustomValidity("Błąd.");
+            }else {
+                input.setCustomValidity("");
+            }
+        });
+        input.addEventListener("input", function() {
+            if (!input.value) {
+                input.setCustomValidity("Błąd.");
+            } else if (input.validity.patternMismatch) {
+                input.setCustomValidity("Błąd.");
+            } else {
+                input.setCustomValidity("");
+            }
+        });
+    });
+    console.log("BAD HEURISTIC 9");
+}
 function doBadHeuristic10(){
 
     document.getElementById("tooltip").style.display = "none";
@@ -237,13 +325,12 @@ function doBadHeuristic10(){
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    
     const inputFields = form.querySelectorAll("input");
     inputFields.forEach(function(input) {
         input.value = ""; 
     });
-
     alert("Dziękujemy za złożenie zamówienia!")
+    
 });
 
 function PrzekazWylosowaneLiczbyDoUnity() {
