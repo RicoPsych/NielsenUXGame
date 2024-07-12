@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         score = 0;
+        lives = 8;
         difficulty = PlayerPrefs.GetInt("Difficulty",2);
         GameObject.Find(cursor.ToString()).GetComponent<CursorChanger>().highlight.color = Color.green;
     }
@@ -29,5 +30,6 @@ public class Player : MonoBehaviour
 public enum CursorType {
     Cloth,
     Swatter,
-    Mouse
+    Mouse,
+    Docs
 }

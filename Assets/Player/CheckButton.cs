@@ -8,6 +8,7 @@ using TMPro;
 
 public class CheckButton : MonoBehaviour
 {
+    private int score;
     private int correct;
     private int wrong;
 
@@ -19,10 +20,17 @@ public class CheckButton : MonoBehaviour
     private GameObject browser;
     
     private Player player;
+    private GameObject checkButton;
+    private GameObject nextButton;
+    
+    
     private List<GameObject> toggles = new List<GameObject>();
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
+        checkButton = GameObject.Find("CheckingButton");
+        nextButton = GameObject.Find("NextButton");
+        
 
         correct= 0;
         wrong = 0;
@@ -39,6 +47,8 @@ public class CheckButton : MonoBehaviour
         toggles.Add(GameObject.Find("9"));
         toggles.Add(GameObject.Find("10"));
 
+        nextButton.SetActive(false);
+        checkButton.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -49,6 +59,14 @@ public class CheckButton : MonoBehaviour
     {
         browser.GetComponent<Browser>().CallFunction("PrzekazWylosowaneLiczbyDoUnity").Then(OnDataReceived).Done();
     }
+    public void NextUI()
+    {
+        browser.GetComponent<Browser>().Reload();
+        nextButton.SetActive(false);
+        checkButton.SetActive(true);
+        //Enable CheckButton/DisableNextButton
+    }
+
     private void OnDataReceived(JSONNode result)
     {
         HeuristicsData heuristicsData = JsonUtility.FromJson<HeuristicsData>("{\"badHeuristics\":" + result.AsJSON.Substring(1,result.AsJSON.Length-2) + "}");
@@ -74,7 +92,11 @@ public class CheckButton : MonoBehaviour
                 toggle.GetComponent<Toggle>().isOn = false;
             }
             player.score += 100 * (player.difficulty+1);
-            browser.GetComponent<Browser>().Reload();
+
+            checkButton.SetActive(false);
+            nextButton.SetActive(true);
+            //DisableCheckButton/EnableNExtbutton
+       //     browser.GetComponent<Browser>().Reload();
         }
         else{
             player.lives-=1;
